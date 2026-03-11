@@ -1,0 +1,17 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Debug DeliverableA",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/DeliverableA.exe",
+            "args": [],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}",
+            "externalConsole": true,
+            "MIMode": "gdb",
+            "miDebuggerPath": "C:/Program Files/mingw64/bin/gdb.exe"
+        }
+    ]
+}
