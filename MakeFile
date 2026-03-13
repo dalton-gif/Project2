@@ -1,0 +1,38 @@
+# Compiler
+CXX = g++
+
+# Compiler flags
+CXXFLAGS = -std=c++17 -Wall
+
+# Target executable
+TARGET = runcodes.exe
+
+# Source files
+SRC = main.cpp \
+      mesh_io.cpp \
+      queries.cpp \
+      validation.cpp \
+      reconstruction_test.cpp \
+      mesh_export.cpp
+
+# Object files
+OBJ = $(SRC:.cpp=.obj)
+
+# Default target
+all: $(TARGET)
+
+# Link objects
+$(TARGET): $(OBJ)
+	$(CXX) $(OBJ) -o $(TARGET)
+
+# Compile source files
+%.obj: %.cpp
+	$(CXX) $(CXXFLAGS) -c $< -o $@
+
+# Run program
+run: $(TARGET)
+	.\$(TARGET)
+
+# Clean build files
+clean:
+	del *.obj *.exe
