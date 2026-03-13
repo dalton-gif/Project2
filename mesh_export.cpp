@@ -3,22 +3,32 @@
 Main purpose of this file is export the data stored in form of Vertices
 and Tetrahedron into .msh file supported in a Gmsh software which can plot
 the whole mesh
+
+Mesh Class is defined here to store vertices co-ordinates and tetrahedron
+connectivity of the mesh.
+--------------------------------------------------------------------------
+Vectors are used because they can grow dynamically
 --------------------------------------------------------------------------
 */
 
-#include "mesh_export.hpp"
+#include<iostream>
+#include<vector>
+#include<fstream>
+#include<string>
+#include<cstdint>
+
 #include "mesh_io.hpp"
-#include <fstream>
-#include <iostream>
+#include "mesh_export.hpp"
 
 using namespace std;
+
 
 /*
 Function : exportMSH
 Purppose : Export the data into .msh file for visualisation
 */
 
-void exportMSH(const string& filename)
+void Mesh::exportMSH(const string& filename)
 {
     ofstream out(filename);                    // Create output file stream
 
@@ -84,7 +94,7 @@ void exportMSH(const string& filename)
     for(int i=0;i<nT;i++)
     {
         out << i+1 <<" "<< 4 << " " << 0 << " "
-            << T[i].v[0]+1 << " "<< T[i].v[1]+1 << " " 
+            << T[i].v[0]+1 << " "<< T[i].v[2]+1 << " " 
             << T[i].v[2]+1 << " " << T[i].v[3]+1 <<"\n";
 
     }

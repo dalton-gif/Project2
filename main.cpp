@@ -59,9 +59,9 @@ int main() {
     // Deliverable D
     reconstructionTest(filename);
 
-   
+    Mesh mesh;
 
-    exportMSH("New_exported_mesh.msh");
+    mesh.exportMSH("New_exported_mesh.msh");
 
     return 0;
 }
