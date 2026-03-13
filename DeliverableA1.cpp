@@ -10,7 +10,7 @@
 
 #include "reconstruction_test.h"
 
-#include "mesh.cpp"
+#include "mesh_export.cpp"
 
 //--------------- INPUTS ------------//
 
