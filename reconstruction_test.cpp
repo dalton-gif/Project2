@@ -156,7 +156,8 @@ void reconstructionTest(const std::string& filename)
         double ey = std::fabs(y[i]-ry);
         double ez = std::fabs(z[i]-rz);
 
-        double vertexError = std::max(ex, std:: max(ey,ez));   // Computing max error in co-ordinates
+        //double vertexError = std::max(ex, std:: max(ey,ez));   // Computing max error in co-ordinates
+        double vertexError = std::sqrt(ex*ex + ey*ey + ez*ez);   // Computing max error in co-ordinates
 
         if(vertexError > maxError) maxError = vertexError;     // Updating the Maximum vertex error value
 
