@@ -4,7 +4,8 @@
 #include "mesh_io.hpp"
 #include "queries.hpp"
 #include "validation.hpp"
-#include "reconstruction.hpp"
+#include "reconstruction_test.hpp"
+#include "mesh_export.hpp"
 
 int main() {
     const std::string filename = "mesh_tets_expanded.txt";
@@ -57,6 +58,10 @@ int main() {
 
     // Deliverable D
     reconstructionTest(filename);
+
+   
+
+    exportMSH("New_exported_mesh.msh");
 
     return 0;
 }
