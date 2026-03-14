@@ -2,6 +2,29 @@
 MEEN 704 - Mesh Project
 
 **Style Guide**
+Coding Style / Conventions Used
+•	C++ Standard: C++17 (/std:c++17)
+•	File organization:
+o	*.hpp contains public declarations (structs + function prototypes).
+o	*.cpp contains implementations and internal helper types.
+•	Naming conventions:
+o	Functions: lowerCamelCase (e.g., buildVertexStarCSR, buildNeighborsAndBoundary, isPointInsideMeshRayCast)
+o	Types/structs: PascalCase (e.g., VertexStarCSR, Connectivity, EdgeStarIndex, FaceKey)
+o	Local variables: snake_case or short descriptive names (e.g., num_vertices, boundary_faces, tid, v)
+o	Constants: const + descriptive name (e.g., eps, coordTol in modules)
+•	Memory & performance practices:
+o	Prefer pass-by-const-reference for large containers (const std::vector<Tet>& T) to avoid copying.
+o	Use reserve() on unordered_map / vectors when approximate size is known to reduce reallocations.
+o	Use compact integer types where appropriate (uint32_t, int32_t, uint64_t).
+•	Connectivity “canonicalization” rule:
+o	Faces and edges are stored using sorted vertex IDs to make comparisons order-independent (canonical keys).
+•	Data-oriented adjacency storage:
+o	Vertex-star uses CSR (Compressed Sparse Row): offsets + adj arrays for contiguous memory and scalability.
+•	Internal helper scope:
+o	Helper functions are marked static inline inside .cpp when they are only used in that file (limits global namespace pollution).
+•	Comments:
+o	Short block comments label sections (Vertex Star, Neighbors/Boundary, Edge Star, Point-In-Mesh).
+o	Inline comments explain key steps (count → prefix-sum → fill, face hashing, odd/even ray rule).
 
 
 
