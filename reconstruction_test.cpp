@@ -1,4 +1,5 @@
-// CPP script function to verify the constrcuted mesh in main with the raw text file
+// FileName : reconstruction_test.cpp
+// CPP script function to verify the constructed mesh in main with the raw text file
 
 #include<iostream>                  // std for Input & output
 #include<fstream>                   // Read and Write Files
@@ -7,7 +8,7 @@
 #include "reconstruction_test.hpp"  // Header files for reconstruction_test
 #include "mesh_io.hpp"              // Header file of mesh_io
 
-//Refering to the variables defined in Deliverable A.cpp using extern
+//Refering to the variables defined in mesh_io.cpp using extern
 
 extern const double epsV;           // Vertex Tolerance used for quantisation
 
@@ -19,33 +20,6 @@ extern std::vector<double> Vz;
 
 //Quantised coordinates structure (qx, qy, qz)
 typedef std::tuple<long long, long long, long long> Key;
-
-// // Function to add the quantised vertices to a Hash table
-// struct KeyHash {
-//     std::size_t operator() (const Key& k) const {
-        
-//         long long a = std::get<0>(k);  //fetching the coordinates 
-//         long long b = std::get<1>(k);
-//         long long c = std::get<2>(k);
-
-//         std::size_t h1 = std::hash<long long>() (a); //hashing the coordinates
-//         std::size_t h2 = std::hash<long long>() (b);
-//         std::size_t h3 = std::hash<long long>() (c);
-
-//         return h1 ^ (h2 << 1) ^ (h3 << 2);
-//     }
-// };
-
-// // Function to check equality of vertex coordinates 
-
-// struct KeyEq {
-//     bool operator()(const Key& a, const Key&b) const{
-//         return std::get<0>(a) == std::get<0>(b) &&
-//                std::get<1>(a) == std::get<1>(b) &&
-//                std::get<2>(a) == std::get<2>(b);
-//     }
-// };
-
 
 extern std::unordered_map<Key, int, KeyHash, KeyEq> key_to_vertex_id;
 

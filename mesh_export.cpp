@@ -39,8 +39,8 @@ void Mesh::exportMSH(const string& filename)
     }
 
 
-   int nV = Vx.size();              // Numver of Vertices
-   int nT = T.size();             // NNumer of Tetrahedra
+   int nV = x.size();              // Numver of Vertices
+   int nT = t0.size();             // NNumer of Tetrahedra
 
    /* Format or Structure of .msh file
    
@@ -80,8 +80,8 @@ void Mesh::exportMSH(const string& filename)
 
     for(int i=0;i<nV;i++)
     {
-        out << i+1 <<" " << Vx[i] << " " << Vy[i] << " " << Vz[i] << "\n";
-
+        out << i+1   << " " << x[i] << " " 
+            << y[i] << " " << z[i] << "\n";
     }
 
     out << "$EndNodes\n";
@@ -94,11 +94,10 @@ void Mesh::exportMSH(const string& filename)
     for(int i=0;i<nT;i++)
     {
         out << i+1 <<" "<< 4 << " " << 0 << " "
-            << T[i].v[0]+1 << " "<< T[i].v[2]+1 << " " 
-            << T[i].v[2]+1 << " " << T[i].v[3]+1 <<"\n";
+            << t0[i]+1 << " "<< t1[i]+1 << " " 
+            << t2[i]+1 << " " <<t3[i]+1 <<"\n";
 
     }
-
     out <<"$EndElements\n";
 
     out.close();                // Close the file

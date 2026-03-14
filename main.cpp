@@ -59,7 +59,23 @@ int main() {
     // Deliverable D
     reconstructionTest(filename);
 
+    // Exportinh to .msh File
+
     Mesh mesh;
+
+        mesh.x = Vx;
+        mesh.y = Vy;
+        mesh.z = Vz;
+
+    for (const Tet& tet : T)
+    {
+
+        mesh.t0.push_back(tet.v[0]);
+        mesh.t1.push_back(tet.v[1]);
+        mesh.t2.push_back(tet.v[2]);
+        mesh.t3.push_back(tet.v[3]);
+
+    }
 
     mesh.exportMSH("New_exported_mesh.msh");
 
