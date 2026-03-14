@@ -56,12 +56,16 @@ int main() {
     bool inside = isPointInsideMeshRayCast(p, Vx, Vy, Vz, conn.boundary_faces);
     std::cout << "Point (0,0,0) inside mesh? " << (inside ? "YES" : "NO") << "\n";
 
-    // Deliverable D
+    //----------------------------------------------------------------------------------
+    // Deliverable D :: Reconstruction correctness test is called through below function
+    //----------------------------------------------------------------------------------
+    // reconstructionTest -> Defined in reconstrcution_test.cpp
+    
     reconstructionTest(filename);
 
-    // Exportinh to .msh File
+    // Exporting to .msh File
 
-    Mesh mesh;
+    Mesh mesh;                  // Mesh is initialised in mesh_export.hpp
 
         mesh.x = Vx;
         mesh.y = Vy;
@@ -76,7 +80,7 @@ int main() {
         mesh.t3.push_back(tet.v[3]);
 
     }
-
+    // export.MSH -> defined in mesh_export.cpp
     mesh.exportMSH("New_exported_mesh.msh");
 
     return 0;
