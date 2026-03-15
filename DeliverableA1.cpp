@@ -8,6 +8,7 @@
 #include <tuple> // for std::tuple
 #include <array> // for std::array
 
+#include "DeliverableA1.h"
 #include "reconstruction_test.h"
 
 #include "mesh_export.cpp"
@@ -31,34 +32,34 @@ struct Tet{
 //All tets
 std::vector<Tet> T;
 
-//Quantised coordinates structure (qx, qy, qz)
-typedef std::tuple<long long, long long, long long> Key;
+// //Quantised coordinates structure (qx, qy, qz)
+// typedef std::tuple<long long, long long, long long> Key;
 
-// Function to add the quantised vertices to a Hash table
-struct KeyHash {
-    std::size_t operator() (const Key& k) const {
+// // Function to add the quantised vertices to a Hash table
+// struct KeyHash {
+//     std::size_t operator() (const Key& k) const {
         
-        long long a = std::get<0>(k);  //fetching the coordinates 
-        long long b = std::get<1>(k);
-        long long c = std::get<2>(k);
+//         long long a = std::get<0>(k);  //fetching the coordinates 
+//         long long b = std::get<1>(k);
+//         long long c = std::get<2>(k);
 
-        std::size_t h1 = std::hash<long long>() (a); //hashing the coordinates
-        std::size_t h2 = std::hash<long long>() (b);
-        std::size_t h3 = std::hash<long long>() (c);
+//         std::size_t h1 = std::hash<long long>() (a); //hashing the coordinates
+//         std::size_t h2 = std::hash<long long>() (b);
+//         std::size_t h3 = std::hash<long long>() (c);
 
-        return h1 ^ (h2 << 1) ^ (h3 << 2);
-    }
-};
+//         return h1 ^ (h2 << 1) ^ (h3 << 2);
+//     }
+// };
 
-// Function to check equality of vertex coordinates 
+// // Function to check equality of vertex coordinates 
 
-struct KeyEq {
-    bool operator()(const Key& a, const Key&b) const{
-        return std::get<0>(a) == std::get<0>(b) &&
-               std::get<1>(a) == std::get<1>(b) &&
-               std::get<2>(a) == std::get<2>(b);
-    }
-};
+// struct KeyEq {
+//     bool operator()(const Key& a, const Key&b) const{
+//         return std::get<0>(a) == std::get<0>(b) &&
+//                std::get<1>(a) == std::get<1>(b) &&
+//                std::get<2>(a) == std::get<2>(b);
+//     }
+// };
 
 //Map from quantised key to vertex ID
 std::unordered_map<Key , int, KeyHash, KeyEq> key_to_vertex_id;
