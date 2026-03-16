@@ -22,5 +22,30 @@ int main{
 
     // Deliverable C
 
-    // Deliverable D
+    //----------------------------------------------------------------------------------
+    // Deliverable D :: Reconstruction correctness test is called through below function
+    //----------------------------------------------------------------------------------
+    // reconstructionTest -> Defined in reconstruction_test.cpp
+    
+    reconstructionTest(filename);
+
+    // Exporting to .msh File
+
+    Mesh mesh;                  // Mesh is initialised in mesh_export.hpp
+
+        mesh.x = Vx;            // Assigning X- coord Vector to mesh.x
+        mesh.y = Vy;            // Assigning Y- coord Vector to mesh.y
+        mesh.z = Vz;            // Assigning Z- coord Vector to mesh.z
+
+    for (const Tet& tet : T)
+    {   mesh.t0.push_back(tet.v[0]);  // Add first vertex index of Tet to mesh.to 
+        mesh.t1.push_back(tet.v[1]);  // Add second vertex index of Tet to mesh.t1 
+        mesh.t2.push_back(tet.v[2]);  // Add third vertex index of Tet to mesh.t2 
+        mesh.t3.push_back(tet.v[3]);  // Add fourth vertex index of Tet to mesh.t3 
+    }
+    
+    // export.MSH -> defined in mesh_export.cpp
+    
+    mesh.exportMSH("New_exported_mesh.msh");
+
 }
