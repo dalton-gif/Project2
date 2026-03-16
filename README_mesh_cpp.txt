@@ -100,7 +100,9 @@ Step 3 – Write Gmsh Mesh Header
 
 The function writes the standard mesh header required by Gmsh.
 
-MeshFormat2.208EndMeshFormat
+MeshFormat
+2.208
+EndMeshFormat
 
 This specifies that the mesh file uses version 2.2 of the Gmsh format.
 
