@@ -100,7 +100,7 @@ Errors are computed as:
 ex = |x_original − x_reconstructed| ey = |y_original − y_reconstructed|
 ez = |z_original − z_reconstructed|
 
-The vertex error is defined as the maximum coordinate difference:
+The vertex error is defined as sqrt(sum squared error)
 
 vertexError = max(ex, ey, ez)
 
