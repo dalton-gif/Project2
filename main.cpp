@@ -19,7 +19,10 @@ int main{
     std::cout << "Tets:            " << T.size() << "\n\n";
 
     // Deliverable B
-
+    validate_index_ranges(true);
+    count_inverted_and_degenerate();
+    detect_duplicate_tets();
+    face_manifold_check();
     // Deliverable C
 
     //----------------------------------------------------------------------------------
