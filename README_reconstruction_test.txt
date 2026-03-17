@@ -54,7 +54,9 @@ values using a tolerance value.
 
 Formula used:
 
-qx = round(x / epsV) qy = round(y / epsV) qz = round(z / epsV)
+qx = round(x / epsV)
+qy = round(y / epsV)
+qz = round(z / epsV)
 
 Where epsV is the vertex tolerance used during mesh construction.
 
@@ -102,7 +104,7 @@ ez = |z_original − z_reconstructed|
 
 The vertex error is defined as sqrt(sum squared error)
 
-vertexError = max(ex, ey, ez)
+vertexError = sqrt(ex*ex, ey*ey, ez*ez)
 
 ------------------------------------------------------------------------
 
