@@ -114,7 +114,11 @@ Vertices are written under the $Nodes section.
 
 Format:
 
-Nodesnumber_(o)f_(v)erticesnodeIDxyz...EndNodes
+$Nodes
+#Nodes
+NodeID x y z
+...
+EndNodes
 
 Important detail: Node indexing in Gmsh starts from 1 instead of 0.
 
@@ -132,7 +136,11 @@ Tetrahedra are written under the $Elements section.
 
 Format:
 
-Elementsnumber_(o)f_(e)lementselementIDelementTypetagsnode1node2node3node4...EndElements
+$Elements
+#Elements
+ElementID ElementType ElementTag Node1 Node2 Node3 Node4 
+...
+EndElements
 
 For tetrahedra:
 
