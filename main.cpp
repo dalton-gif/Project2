@@ -7,7 +7,7 @@
 #include "reconstruction_test.hpp"
 #include "mesh_export.hpp"
 
-int main{
+int main(){
     const std::string filename = "mesh_tets_expanded.txt";
 
     if (!loadMeshFile(filename)){
