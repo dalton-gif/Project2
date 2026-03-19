@@ -39,7 +39,8 @@ int getVertexID(double x, double y, double z) {
 
     // To check if this key already exists
     auto it = key_to_vertex_id.find(key);
-    if (it != key_to_vertex_id.end() return it->second;)
+    if (it != key_to_vertex_id.end())
+        return it->second;
 
     //If not found, create a new vertex ID
     int new_id = static_cast<int>(Vx.size();
