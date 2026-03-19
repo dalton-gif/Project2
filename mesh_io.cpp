@@ -43,10 +43,10 @@ int getVertexID(double x, double y, double z) {
         return it->second;
 
     //If not found, create a new vertex ID
-    int new_id = static_cast<int>(Vx.size();
-    Vx.pushback(x);
-    Vy.pushback(y);
-    Vz.pushback(z);
+    int new_id = static_cast<int>(Vx.size());
+    Vx.push_back(x);
+    Vy.push_back(y);
+    Vz.push_back(z);
 
     key_to_vertex_id[key] = new_id; //Stores the key in the map is new ID
     return new_id; // Returns the new vertex ID
@@ -62,8 +62,8 @@ bool loadMeshFile(const std::string& filename) {
     std::string line; // holds one line of text at a time
     int line_number = 0; // Tracks which line you are on
 
-    while (std::getLine(in, line)) { // Each non-empty, non-comment line read by getline
-        ++linenumber;
+    while (std::getline(in, line)) { // Each non-empty, non-comment line read by getline
+        ++line_number;
 
         //Skip empty lines
         if (line.empty() || line[0] == '#') continue;
